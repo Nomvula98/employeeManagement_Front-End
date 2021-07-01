@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   public employees: Employee[];
   public editEmployee: Employee;
   public deleteEmployee: Employee;
+  title: any;
 
   constructor(private employeeService: EmployeeService){}
 

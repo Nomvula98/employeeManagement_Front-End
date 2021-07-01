@@ -1,3 +1,5 @@
+
+<div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" style="color:white;">Employee Manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,12 +11,20 @@
            <a class="nav-link" (click)="onOpenModal(null, 'add')">Add Employee <span class="sr-only">(current)</span></a>
         </li>
      </ul>
+     <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+         <a class="nav-link" routerLink = "emp-details">View <span class="sr-only">(current)</span></a>
+      </li>
+   </ul>
      <form class="form-inline my-2 my-lg-0">
         <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
      </form>
   </div>
+  
 </nav>
+<router-outlet></router-outlet>
+</div>
 <div class="container" id="main-container">
 <div class="row">
   <div *ngFor="let employee of employees" class="col-md-6 col-xl-3">
@@ -23,8 +33,8 @@
            <div class="col-6">
               <a href=""><img src="{{employee?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
            </div>
-           <div class="col-6 card-title align-self-center mb-0">
-              <h5>{{employee?.name}}</h5>
+           <div class="col-6 card-title align-self-center mb-0" >
+              <h4>   {{employee?.name}}</h4>
               <p class="m-0">{{employee?.jobTitle}}</p>
            </div>
         </div>
@@ -148,6 +158,8 @@
      </div>
   </div>
 </div>
+
+
 </div>
 
 <!-- Notification for no employees -->
@@ -157,3 +169,5 @@
   <p>No Employees were found.</p>
 </div>
 </div>
+<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>--> <!--routed View goes here-->
